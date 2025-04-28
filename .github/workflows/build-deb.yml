@@ -1,0 +1,45 @@
+name: Build and Upload Debian Package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-deb:
+    name: Build microVPS-cleaner Debian Package
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up packaging folders
+      run: |
+        mkdir -p microVPS-cleaner/usr/local/bin
+        mkdir -p microVPS-cleaner/DEBIAN
+        cp micro_cleaner.sh microVPS-cleaner/usr/local/bin/microvps-cleaner
+        chmod +x microVPS-cleaner/usr/local/bin/microvps-cleaner
+
+        cat <<EOF > microVPS-cleaner/DEBIAN/control
+Package: microvps-cleaner
+Version: ${{ github.event.release.tag_name }}
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Niko <your@email.com>
+Description: 
+ A dynamic microserver cleanup and optimization tool.
+EOF
+
+    - name: Build the .deb package
+      run: |
+        dpkg-deb --build microVPS-cleaner
+        mkdir artifacts
+        mv microVPS-cleaner.deb artifacts/microVPS-cleaner-${{ github.event.release.tag_name }}.deb
+
+    - name: Upload Release Asset
+      uses: softprops/action-gh-release@v2
+      with:
+        files: artifacts/*.deb
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
