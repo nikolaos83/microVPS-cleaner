@@ -1,5 +1,5 @@
 ![Built for Small Servers](https://img.shields.io/badge/Built%20for-Small%20Servers-green?style=flat-square)
-![ShellCheck](https://github.com/YOUR_USERNAME/micro_cleaner/actions/workflows/shellcheck.yml/badge.svg)
+![ShellCheck](https://github.com/nikolaos83/microVPS-cleaner/actions/workflows/shellcheck.yml/badge.svg)
 
 
 # Micro Cleaner Script
