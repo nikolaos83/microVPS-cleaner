@@ -2,7 +2,7 @@
 
 # Color codes
 GREEN="\e[32m"
-RED="\e[31m"
+#RED="\e[31m"
 YELLOW="\e[33m"
 BLUE="\e[34m"
 RESET="\e[0m"
