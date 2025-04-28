@@ -23,7 +23,7 @@ A smart, interactive script designed to **clean up and optimize small servers** 
 
 2. Download the script:
 ```bash
-curl -O https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/micro_cleaner/main/micro_cleaner.sh
+curl -O https://raw.githubusercontent.com/nikolaos83/microVPS-cleaner/main/micro_cleaner.sh
 chmod +x micro_cleaner.sh
 ```
 
