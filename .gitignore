@@ -1,0 +1,13 @@
+# Ignore editor swap files and temporary junk
+*~
+*.swp
+*.tmp
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore personal notes
+notes.txt
+todo.txt
+*.bak
